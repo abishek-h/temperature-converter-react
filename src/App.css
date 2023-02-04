@@ -94,3 +94,8 @@ select {
 select:focus {
   outline: none;
 }
+@media (max-width: 360px) {
+  .king-container {
+    margin: 100px auto;
+  }
+}
