@@ -62,8 +62,8 @@ const App = () => {
           </div>
           <div className="bottom-text">
             <select id="output">
-              <option>Celsius</option>
               <option>Fahrenheit</option>
+              <option>Celsius</option>
               <option>Kelvin</option>
             </select>
           </div>
