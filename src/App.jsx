@@ -56,7 +56,7 @@ const App = () => {
     <div className="App">
       <div className="king-container">
         <div className="heading">Temperature</div>
-        <div className="degree">
+        <div className="cont-top">
           <div className="input-box">
             <input type="text" onInput={input} value={inputvalue} />
           </div>
@@ -69,7 +69,7 @@ const App = () => {
           </div>
         </div>
         <div className="operator">=</div>
-        <div className="fahrenheit">
+        <div className="cont-bottom">
           <div className="input-box">
             <input type="text" value={outputvalue} />
           </div>
