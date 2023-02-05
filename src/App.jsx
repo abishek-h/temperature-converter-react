@@ -6,30 +6,45 @@ const App = () => {
   const input = (event) => {
     setinputvalue(event.target.value);
   };
+  const [selectedinvalue, setselectedvalue] = useState("Celsius");
+  const selectinput = (event) => {
+    setselectedvalue(event.target.value);
+  };
+  const [selectedoutvalue, setselectedoutvalue] = useState("Fahrenheit");
+  const selectoutput = (event) => {
+    setselectedoutvalue(event.target.value);
+  };
   const [outputvalue, setoutputvalue] = useState();
   const output = () => {
-    const input = document.getElementById("input");
-    const output = document.getElementById("output");
     //celsius
-    if (input.value == "Celsius" && output.value == "Fahrenheit") {
+    if (selectedinvalue == "Celsius" && selectedoutvalue == "Fahrenheit") {
       setoutputvalue(((Number(inputvalue) * 9) / 5 + 32).toFixed(2));
-    } else if (input.value == "Celsius" && output.value == "Celsius") {
+    } else if (selectedinvalue == "Celsius" && selectedoutvalue == "Celsius") {
       setoutputvalue(inputvalue);
-    } else if (input.value == "Celsius" && output.value == "Kelvin") {
+    } else if (selectedinvalue == "Celsius" && selectedoutvalue == "Kelvin") {
       setoutputvalue((Number(inputvalue) + 273.15).toFixed(2));
     }
     // //Fahrenheit
-    else if (input.value == "Fahrenheit" && output.value == "Fahrenheit") {
+    else if (
+      selectedinvalue == "Fahrenheit" &&
+      selectedoutvalue == "Fahrenheit"
+    ) {
       setoutputvalue(inputvalue);
-    } else if (input.value == "Fahrenheit" && output.value == "Celsius") {
+    } else if (
+      selectedinvalue == "Fahrenheit" &&
+      selectedoutvalue == "Celsius"
+    ) {
       setoutputvalue(((Number(inputvalue) - 32) * (5 / 9)).toFixed(3));
-    } else if (input.value == "Fahrenheit" && output.value == "Kelvin") {
+    } else if (
+      selectedinvalue == "Fahrenheit" &&
+      selectedoutvalue == "Kelvin"
+    ) {
       setoutputvalue(((inputvalue - 32) * (5 / 9) + 273.15).toFixed(3));
     }
     // //kelvin
-    else if (input.value == "Kelvin" && output.value == "Fahrenheit") {
+    else if (selectedinvalue == "Kelvin" && selectedoutvalue == "Fahrenheit") {
       setoutputvalue(((inputvalue - 273.15) * (9 / 5) + 32).toFixed(3));
-    } else if (input.value == "Kelvin" && output.value == "Celsius") {
+    } else if (selectedinvalue == "Kelvin" && selectedoutvalue == "Celsius") {
       setoutputvalue((inputvalue - 273.15).toFixed(3));
     } else {
       setoutputvalue(inputvalue);
@@ -48,7 +63,7 @@ const App = () => {
             <input type="text" onInput={input} value={inputvalue} />
           </div>
           <div className="bottom-text">
-            <select id="input">
+            <select id="input" onClick={selectinput}>
               <option>Celsius</option>
               <option>Fahrenheit</option>
               <option>Kelvin</option>
@@ -61,7 +76,7 @@ const App = () => {
             <input type="text" value={outputvalue} />
           </div>
           <div className="bottom-text">
-            <select id="output">
+            <select id="output" onClick={selectoutput}>
               <option>Fahrenheit</option>
               <option>Celsius</option>
               <option>Kelvin</option>
